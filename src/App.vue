@@ -1,10 +1,11 @@
 <template>
+  <!-- condition: check if the temperatur is higher than 16° and set class to warm for alternate background -->
   <div id="app" :class="typeof weather.main != 'undefined' && weather.main.temp > 16 ? 'warm' : ''">
     <main>
       
       <SearchBox @weather-result="getWeatherResult"/>
 
-      <!-- conditional: if weather response is undefined don't show any result -->
+      <!-- condition: if weather response is undefined don't show any result -->
       <div class="weather-wrap" v-if="typeof weather.main != 'undefined'">
         <div class="location-box">
           <div class="location">{{ weather.name }}, {{ weather.sys.country }}</div>
